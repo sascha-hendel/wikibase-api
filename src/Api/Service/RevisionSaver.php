@@ -97,6 +97,11 @@ class RevisionSaver {
 		if( $editInfo->getMinor() ) {
 			$params['minor'] = true;
 		}
+		$maxlag = $editInfo->getMaxlag();
+		// zero value means no maxlag
+		if ( $maxlag > 0 ) {
+			$params['maxlag'] = $maxlag;
+		}
 		$summary = $editInfo->getSummary();
 		if( !empty( $summary ) ) {
 			$params['summary'] = $summary;
